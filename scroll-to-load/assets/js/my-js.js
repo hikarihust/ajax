@@ -1,6 +1,5 @@
-let ITEM_PER_PAGE = 4;
+let ITEM_PER_PAGE = 8;
 let page = 0;
-let flag = false;
 let filmHtmlTemplate = $('#templateHtml');
 let showFilmsElement = $('#show-films');
 
@@ -10,33 +9,28 @@ $(document).ready(function () {
 });
 
 function loadData() {
-    if(flag == false) {
-        flag == true;
-        $('body').loading();
-        $.ajax({
-            type: "GET",
-            url: "load_more.php",
-            data: {
-                limit : ITEM_PER_PAGE + 1,
-                offset : page * ITEM_PER_PAGE
-            },
-            dataType: "json",
-            success: function (data) {
-                flag == false;
-                setTimeout(() => {
-                    $('body').loading('stop');
-                    if (data.items.length > ITEM_PER_PAGE) {
-                        page++;
-                        let showItems = data.items.slice(0, ITEM_PER_PAGE);
-                        appendData(showItems,filmHtmlTemplate, showFilmsElement);
-                    } else {
-                        $('#btn-show').hide();
-                        appendData(data.items, filmHtmlTemplate, showFilmsElement);
-                    }
-                },1000);
-            }
-        });
-    }
+    $('body').loading();
+    $.ajax({
+        type: "GET",
+        url: "load_more.php",
+        data: {
+            limit : ITEM_PER_PAGE + 1,
+            offset : page * ITEM_PER_PAGE
+        },
+        dataType: "json",
+        success: function (data) {
+            setTimeout(() => {
+                $('body').loading('stop');
+                if (data.items.length > ITEM_PER_PAGE) {
+                    page++;
+                    let showItems = data.items.slice(0, ITEM_PER_PAGE);
+                    appendData(showItems,filmHtmlTemplate, showFilmsElement);
+                } else {
+                    appendData(data.items, filmHtmlTemplate, showFilmsElement);
+                }
+            },1000);
+        }
+    });
 }
 
 function appendData(items, filmHtmlTemplate, showFilmsElement) {
@@ -49,5 +43,4 @@ function appendData(items, filmHtmlTemplate, showFilmsElement) {
             showFilmsElement.append(htmlMore);
         });
     }
-    $("body, html").animate({scrollTop: $(document).height()}, 500);
 }
