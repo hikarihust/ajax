@@ -51,5 +51,39 @@ function init() {
 	}).done(function(data){
 		totalPages = data.totalPages;
 		totalItems = data.totalItems;
+        setPageInfo()
+        setSelectPageOptions()
 	});
+}
+
+function setSelectPageOptions() {
+	for (var i = 1; i <= totalPages; i++) {
+		if (i != currentPage) {
+			$('#slbPages').append('<option value="' + i + '">Page ' + (i) +'</option>');
+		} else {
+			$('#slbPages').append('<option selected="selected" value="' + i + '">Page ' + (i ) +'</option>');
+		}
+	}
+}
+
+function setPageInfo(){
+	$('.pageInfo').text('Page ' + (currentPage) + ' of ' + totalPages);
+	
+	$('#slbPages').val(currentPage);
+	
+	if (currentPage == 1) {
+		$('.goStart').attr('disabled','disabled');
+		$('.goPrevious').attr('disabled','disabled');
+	} else {
+		$('.goStart').removeAttr('disabled');
+		$('.goPrevious').removeAttr('disabled');
+	}
+	
+	if (currentPage == totalPages) {
+		$('.goEnd').attr('disabled','disabled');
+		$('.goNext').attr('disabled','disabled');
+	} else {
+		$('.goNext').removeAttr('disabled');
+		$('.goEnd').removeAttr('disabled');
+	}
 }
