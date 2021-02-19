@@ -12,12 +12,12 @@ function loadData() {
         type: "GET",
         url: "load_more.php",
         data: {
-            limit : ITEM_PER_PAGE + 1,
+            limit : ITEM_PER_PAGE,
             offset : page * ITEM_PER_PAGE
         },
         dataType: "json",
         success: function (data) {
-            
+            console.log(data);
         }
     });
 }
