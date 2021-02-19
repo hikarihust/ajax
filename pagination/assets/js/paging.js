@@ -13,6 +13,45 @@ $(document).ready(function(){
 		currentPage = pageUrl;
 	}
     init();
+
+	$('.goStart').on('click',function(){
+		currentPage = 1;
+		history.pushState(null, null, 'index.php?page=' + (currentPage));
+		setPageInfo()
+		loadData();
+	});
+
+	$('.goEnd').on('click',function(){
+		currentPage = totalPages;
+		history.pushState(null, null, 'index.php?page=' + (currentPage));
+		setPageInfo()
+		loadData();
+	});
+
+	$('.goPrevious').on('click',function(){
+		if(currentPage > 0){
+			currentPage--;
+			history.pushState(null, null, 'index.php?page=' + (currentPage));
+			setPageInfo();
+			loadData();
+		}
+	});
+	
+	$('.goNext').on('click',function(){
+		if(currentPage < totalPages){
+			currentPage++;
+			history.pushState(null, null, 'index.php?page=' + (currentPage));
+			setPageInfo();
+			loadData();
+		}
+	});	
+
+	$('#slbPages').on('change',function(){
+		currentPage	= parseInt($(this).val());
+		history.pushState(null, null, 'index.php?page=' + (currentPage));
+		setPageInfo();
+		loadData();
+	});
 })
 
 function appendData(items, filmHtmlTemplate, showFilmsElement) {
@@ -73,6 +112,8 @@ function setSelectPageOptions() {
 
 function setPageInfo(){
 	$('.pageInfo').text('Page ' + (currentPage) + ' of ' + totalPages);
+
+    $('#slbPages').val(currentPage);
 	
 	if (currentPage == 1) {
 		$('.goStart').attr('disabled','disabled');
