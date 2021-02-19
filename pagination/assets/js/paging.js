@@ -7,8 +7,12 @@ let showFilmsElement = $('.content-movie');
 
 
 $(document).ready(function(){
+	var url = new URL(window.location);
+	var pageUrl = url.searchParams.get("page");
+	if(pageUrl != null){
+		currentPage = pageUrl;
+	}
     init();
-	loadData();
 })
 
 function appendData(items, filmHtmlTemplate, showFilmsElement) {
@@ -53,6 +57,7 @@ function init() {
 		totalItems = data.totalItems;
         setPageInfo()
         setSelectPageOptions()
+        loadData();
 	});
 }
 
@@ -68,8 +73,6 @@ function setSelectPageOptions() {
 
 function setPageInfo(){
 	$('.pageInfo').text('Page ' + (currentPage) + ' of ' + totalPages);
-	
-	$('#slbPages').val(currentPage);
 	
 	if (currentPage == 1) {
 		$('.goStart').attr('disabled','disabled');
