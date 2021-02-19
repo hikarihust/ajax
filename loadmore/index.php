@@ -17,7 +17,7 @@
 		</div>
 		<div class="row">
 			<p class="col-md-2 col-md-offset-5">
-				<button type="button" class="btn btn-primary btn-block" id="btn-show">Load More</button>
+				<button type="button" class="btn btn-primary btn-block" id="btn-show" onclick="javascript:loadData()">Load More</button>
 			</p>
 		</div>
 	</div>	

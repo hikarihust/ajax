@@ -14,12 +14,19 @@ function loadData() {
         type: "GET",
         url: "load_more.php",
         data: {
-            limit : ITEM_PER_PAGE,
+            limit : ITEM_PER_PAGE + 1,
             offset : page * ITEM_PER_PAGE
         },
         dataType: "json",
         success: function (data) {
-            appendData(data.items, filmHtmlTemplate, showFilmsElement);
+            if (data.items.length > ITEM_PER_PAGE) {
+                page++;
+                let showItems = data.items.slice(0, ITEM_PER_PAGE);
+                appendData(showItems,filmHtmlTemplate, showFilmsElement);
+            } else {
+                $('#btn-show').hide();
+                appendData(data.items, filmHtmlTemplate, showFilmsElement);
+            }
         }
     });
 }
