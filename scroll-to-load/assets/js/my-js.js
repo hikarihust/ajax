@@ -2,10 +2,18 @@ let ITEM_PER_PAGE = 8;
 let page = 0;
 let filmHtmlTemplate = $('#templateHtml');
 let showFilmsElement = $('#show-films');
+let haveMoreItem = true;
 
 
 $(document).ready(function () {
     loadData();
+    $(window).scroll(function () { 
+        if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+            if ( haveMoreItem ){
+                loadData();
+            }
+        }
+    });
 });
 
 function loadData() {
@@ -26,6 +34,7 @@ function loadData() {
                     let showItems = data.items.slice(0, ITEM_PER_PAGE);
                     appendData(showItems,filmHtmlTemplate, showFilmsElement);
                 } else {
+                    haveMoreItem = false;
                     appendData(data.items, filmHtmlTemplate, showFilmsElement);
                 }
             },1000);
