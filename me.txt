@@ -36,3 +36,4 @@ Complete
                                 Tab 
                     
 Prepare - Setup
+Prepare - Show Film
