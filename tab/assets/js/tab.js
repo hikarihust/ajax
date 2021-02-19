@@ -4,8 +4,36 @@ let categoryId = 1;
 
 
 $(document).ready(function(){
+    init();
     loadData(categoryId);
 });
+
+function init() {
+	return new Promise(function(resolve, reject) {
+		$.ajax({
+			type: "GET",
+			url: "tab.php",
+			data: {
+				type : 'category'
+			},
+			dataType: "json",
+			async: false,
+			success: function (data) {
+				let activeDefault = 0;
+				$.each(data, (key, value) =>{
+					if(activeDefault == 0){
+						$('#tab-category-demo').append('<li id="' + value.id + '" class="active tab-movie-demo"><a href="javascript:void(0)">'+ value.name +'</a></li>');
+					}else{
+						$('#tab-category-demo').append('<li id="' + value.id + '" class="tab-movie-demo"><a href="javascript:void(0)">'+ value.name +'</a></li>');
+					}
+					activeDefault++;
+				})
+			}
+		});
+		resolve(categoryId);
+		reject('Error');
+	});
+}
 
 function loadData(categoryId) {
 	$.ajax({

@@ -8,3 +8,8 @@ if($type == 'load-data') {
 	$result = $database->getArrayDataByCategoryId($categoryId);
 	echo json_encode($result);
 }
+
+if($type == 'category'){
+	$result = $database->getArray('category');
+	echo json_encode($result);
+}

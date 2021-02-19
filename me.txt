@@ -37,3 +37,6 @@ Complete
                     
 Prepare - Setup
 Prepare - Show Film
+Prepare - Show Category
+    Promise
+    async: false
