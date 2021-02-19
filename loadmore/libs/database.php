@@ -38,6 +38,21 @@ class Database {
 			return false;
 	}
 
+	public function getArrayByLoadMore($table = '', $limit, $offset)
+	{
+		$sql = 'SELECT * FROM '. $table . ' LIMIT '. $limit . ' OFFSET ' . $offset;
+		$data = null;
+		if($result = mysqli_query($this->conn,$sql)){
+			while($row = mysqli_fetch_array($result)){
+				$data[] = $row;
+			}
+			mysqli_free_result($result);
+			return $data;
+		}
+		else
+			return false;
+	}
+
 	public function removeXss($string) {
 		$string = preg_replace('#&(?!\#[0-9]+;)#si', '&amp;', $string);
 		$string = str_replace("<", "&lt;", $string);
