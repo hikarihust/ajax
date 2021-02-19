@@ -1,0 +1,6 @@
+new Promise((resolve, reject) => {
+    + resolve là hàm sẽ được gọi khi promise hoàn thành
+    + reject là hàm sẽ được gọi khi có lỗi xảy ra
+})
+
+Promise.resolve(12).then(result => console.log(result) ))  // 12
