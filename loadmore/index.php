@@ -7,7 +7,7 @@
 	<title>Load More</title>
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/css/style.css">
-	<!-- <link href="node_modules/jquery-easy-loading/src/loading.css" rel="stylesheet"> -->
+	<link href="node_modules/jquery-easy-loading/src/loading.css" rel="stylesheet">
 </head>
 <body>
 	<div class="container">
@@ -34,6 +34,7 @@
 	</script>
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="node_modules/jquery-easy-loading/dist/jquery.loading.js"></script>
 	<script src="assets/js/my-js.js"></script>
 </body>
 </html>

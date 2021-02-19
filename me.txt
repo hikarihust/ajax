@@ -7,4 +7,8 @@ Prepare - Ajax
 Practice - Get Film
 Practice -Show Film
 Practice -LoadMore
+Complete
+    Using jquery-easy-loading library 
+    https://www.npmjs.com/package/jquery-easy-loading
+    npm i jquery-easy-loading
     
