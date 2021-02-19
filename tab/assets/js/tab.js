@@ -4,8 +4,16 @@ let categoryId = 1;
 
 
 $(document).ready(function(){
-    init();
-    loadData(categoryId);
+	init().then(function (categoryId) { 
+		loadData(categoryId);
+        handleClassActive(categoryId);
+	});
+
+	$('.tab-movie-demo').click(function (e) { 
+		let id = $(this).attr('id');
+		loadData(id);
+        handleClassActive(id);
+	});
 });
 
 function init() {
@@ -60,4 +68,9 @@ function appendData(items, filmHtmlTemplate, showFilmsElement) {
 			showFilmsElement.append(htmlMore);
 		});
 	}
+}
+
+function handleClassActive(id) {
+	$('#tab-category-demo li').removeClass("active");
+	$("#" + id).addClass("active");
 }
