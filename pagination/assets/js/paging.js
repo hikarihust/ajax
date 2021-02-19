@@ -1,10 +1,13 @@
 let ITEM_PER_PAGE = 3;
 let currentPage = 1;
+let totalItems = 0;
+let totalPages = 0;
 let filmHtmlTemplate = $('#templateHtml');
 let showFilmsElement = $('.content-movie');
 
 
 $(document).ready(function(){
+    init();
 	loadData();
 })
 
@@ -33,5 +36,20 @@ function loadData(){
 		dataType: 'json'
 	}).done(function(data){
 		appendData(data.items, filmHtmlTemplate, showFilmsElement);
+	});
+}
+
+function init() { 
+	$.ajax({
+		url		: 'pagination_ajax.php',
+		data	: {
+			type: 'count', 
+			items: ITEM_PER_PAGE
+		},
+		type	: 'GET',
+		dataType: 'json'
+	}).done(function(data){
+		totalPages = data.totalPages;
+		totalItems = data.totalItems;
 	});
 }

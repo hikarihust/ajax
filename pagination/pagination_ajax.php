@@ -9,3 +9,13 @@ if($type == 'list'){
 	$items = $database->getArrayByLoadMore('item', $limit, $offset);
 	echo json_encode(array("items" => $items));
 }
+
+if($type == 'count'){
+	$totalItems = count($database->getArray('item'));
+	$items		= $database->removeXss($_GET['items']);
+
+	$result['totalPages'] = ceil($totalItems/$items);
+	$result['totalItems'] = $totalItems;
+
+	echo json_encode($result);
+}
