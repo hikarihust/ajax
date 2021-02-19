@@ -11,4 +11,10 @@ Complete
     Using jquery-easy-loading library 
     https://www.npmjs.com/package/jquery-easy-loading
     npm i jquery-easy-loading
+
+    =====================================================================================
+
+                                Scroll to load
+        
+Prepare - Setup
     
