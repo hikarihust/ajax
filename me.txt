@@ -48,3 +48,9 @@ Practice - LocalStorage
                                 Tooltip
                     
 Prepare - Setup
+Prepare - Tooltip
+    tooltipster 
+        https://calebjacob.github.io/tooltipster/
+    tooltipster follower
+        https://www.npmjs.com/package/tooltipster-follower
+        npm i tooltipster-follower

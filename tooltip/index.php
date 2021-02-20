@@ -8,6 +8,8 @@
 	<title>Tooltip</title>
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="assets/node_modules/tooltipster/dist/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/node_modules/tooltipster-follower/dist/css/tooltipster-follower.min.css" />
 </head>
 <body>
 	<div class="container">
@@ -43,6 +45,8 @@
 	</script>
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/node_modules/tooltipster/dist/js/tooltipster.bundle.min.js"></script> 
+    <script type="text/javascript" src="assets/node_modules/tooltipster-follower/dist/js/tooltipster-follower.min.js"></script> 
 	<script src="assets/js/tooltip.js"></script>
 </body>
 
