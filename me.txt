@@ -54,3 +54,7 @@ Prepare - Tooltip
     tooltipster follower
         https://www.npmjs.com/package/tooltipster-follower
         npm i tooltipster-follower
+Practice - Show Tooltip
+    https://stackoverflow.com/questions/31082910/tooltipster-html-content
+    contentAsHTML: true,
+    
