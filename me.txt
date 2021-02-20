@@ -41,3 +41,4 @@ Prepare - Show Category
     Promise
     async: false
 Practice - Active
+Practice - LocalStorage

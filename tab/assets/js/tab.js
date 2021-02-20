@@ -1,7 +1,7 @@
 let filmHtmlTemplate = $('#templateHtml');
 let showFilmsElement = $('.content-movie');
 let categoryId = 1;
-
+if(localStorage.getItem("id")) categoryId = localStorage.getItem("id");
 
 $(document).ready(function(){
 	init().then(function (categoryId) { 
@@ -13,6 +13,7 @@ $(document).ready(function(){
 		let id = $(this).attr('id');
 		loadData(id);
         handleClassActive(id);
+        saveLocalStorage(id);
 	});
 });
 
@@ -73,4 +74,8 @@ function appendData(items, filmHtmlTemplate, showFilmsElement) {
 function handleClassActive(id) {
 	$('#tab-category-demo li').removeClass("active");
 	$("#" + id).addClass("active");
+}
+
+function saveLocalStorage(id) { 
+	localStorage.setItem("id", id);
 }
