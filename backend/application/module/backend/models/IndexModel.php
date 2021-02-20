@@ -46,6 +46,18 @@ class IndexModel extends BackendModel
             $this->query($query);
             return ['title' => 'Cập nhật thành công', 'class' => 'success'];
         }
+        
+        if ($options == 'changeStatus') {
+            $status     = ($params['type'] == 'inactive') ? 'active' : 'inactive';
+            $class      = ($params['type'] == 'inactive') ? 'success' : 'danger ';
+            $icon       = ($params['type'] == 'inactive') ? 'check' : 'minus';
+            $id         = $params['id'];
+            $query      = "Update `$this->table` SET `status` = '$status' WHERE id = $id";
+            $this->query($query);
+            $link = URL::createLink($_GET['module'], $_GET['controller'], 'changeStatus', ['id' => $id, 'status' => $status]);
+            $xhtml = '<a href="javascript:changeStatus(\''.$link.'\')" class="status-'.$id.' my-btn-state rounded-circle btn btn-sm btn-' . $class . ' status"><i class="fas fa-' . $icon . '"></i></a>';
+            return ['title' => 'Cập nhật thành công', 'class' => 'success','html' => $xhtml,'id' => $id];
+        }
     }
 
 }

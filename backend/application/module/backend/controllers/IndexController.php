@@ -23,4 +23,11 @@ class IndexController extends BackendController
 		echo json_encode($result);
 	}
 
+	public function changeStatusAction(){
+		$params['id'] 		= $_GET['id'];
+		$params['type'] 	= $_GET['status'];
+		$result = $this->_model->changeAjax($params,'changeStatus');
+		echo json_encode($result);
+	}
+
 }

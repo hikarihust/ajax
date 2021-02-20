@@ -73,3 +73,4 @@ Practice - Change Name
     template.ini
         fileJs[]	= "notifyjs/notify.min.js"
 Practice - Change Category
+Practice - Change Status

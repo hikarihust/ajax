@@ -25,6 +25,16 @@ $(document).ready(function () {
     });
 });
 
+function changeStatus(url) {
+    $.get(url,
+        function (data) {
+            let current = $('.status-' + data.id);
+            notice(current,data);
+            $(current).replaceWith(data.html);
+        },'json'
+    );
+}
+
 function notice(currrent,data){
     currrent.notify(data.title, {
         className: data.class,
