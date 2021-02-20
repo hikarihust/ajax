@@ -72,4 +72,4 @@ Practice - Change Name
     https://notifyjs.jpillora.com/
     template.ini
         fileJs[]	= "notifyjs/notify.min.js"
-    
+Practice - Change Category

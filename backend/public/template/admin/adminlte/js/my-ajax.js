@@ -10,6 +10,19 @@ $(document).ready(function () {
             },'json'
         );
     });
+
+    $('select[name=category_name]').change(function (e) { 
+        let id = $(this).attr('id');
+        let current = $(this);
+        
+        let value = $(this).val();
+        let url = `index.php?module=backend&controller=index&action=changeAjax`;
+        $.get(url, {'value' : value,'id' : id,'type' : 'changeCategoryName'},
+            function (data) {
+                notice(current,data);
+            },'json'
+        );
+    });
 });
 
 function notice(currrent,data){

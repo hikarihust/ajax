@@ -38,6 +38,14 @@ class IndexModel extends BackendModel
             $this->query($query);
             return ['title' => 'Cập nhật thành công', 'class' => 'success'];
         }
+
+        if ($options == 'changeCategoryName') {
+            $value       = $params['value'];
+            $id         = $params['id'];
+            $query      = "Update `$this->table` SET `category_id` = '$value' WHERE id = $id";
+            $this->query($query);
+            return ['title' => 'Cập nhật thành công', 'class' => 'success'];
+        }
     }
 
 }
