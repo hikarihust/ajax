@@ -16,4 +16,11 @@ class IndexController extends BackendController
 		$this->_view->render($this->_setController . '/index');
 	}
 
+	public function changeAjaxAction(){
+		$params['value'] = $_GET['value'];
+		$params['id']	= $_GET['id'];
+		$result = $this->_model->changeAjax($params,$_GET['type']);
+		echo json_encode($result);
+	}
+
 }

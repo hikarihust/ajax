@@ -67,4 +67,9 @@ Practice - Show Content
                                 Backend
 
 Prepare - Setup
+Practice - Change Name
+    Thư viện thông báo: Notify.js 
+    https://notifyjs.jpillora.com/
+    template.ini
+        fileJs[]	= "notifyjs/notify.min.js"
     

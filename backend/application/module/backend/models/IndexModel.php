@@ -29,5 +29,15 @@ class IndexModel extends BackendModel
         return $result;
     }
 
-  
+    public function changeAjax($params, $options)
+    {
+        if ($options == 'changeNameFilm') {
+            $value       = $params['value'];
+            $id         = $params['id'];
+            $query      = "Update `$this->table` SET `title` = '$value' WHERE id = $id";
+            $this->query($query);
+            return ['title' => 'Cập nhật thành công', 'class' => 'success'];
+        }
+    }
+
 }
