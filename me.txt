@@ -57,4 +57,8 @@ Prepare - Tooltip
 Practice - Show Tooltip
     https://stackoverflow.com/questions/31082910/tooltipster-html-content
     contentAsHTML: true,
+Practice - Show Content
+    Khi đã hover vào 1 bộ film nào rồi thì sẽ lưu lại, khi hover lên bộ film khác rồi quay về bộ 
+        film cũ, thì sẽ lấy từ trong chỗ đã lưu để show lên mà ko cần cập nhật từ trong Database về 
+    Tương tự như đối với Tab cũng vậy 
     

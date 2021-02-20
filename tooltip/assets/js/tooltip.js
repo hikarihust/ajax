@@ -35,24 +35,30 @@ function loadFull() {
             interactive: true,
             functionBefore: function(instance, helper) {
                 let id = instance._$origin[0].id;
-                $.ajax({
-                    url		: 'tooltip.php',
-                    data	: {
-                        type: 'load-one',
-                        id : id
-                    },
-                    type	: 'GET',
-                    dataType: 'json',
-                    async: false
-                }).done(function(data){
-                    let content =    '<div>Name:   '+ data.title +'</div>';
-                        content +=    '<div>Type:   '+ data.category_name +'</div>';
-                        content +=    '<div>Actor:  '+ data.actor_name +'</div>';
-                        content +=    '<div>Release Date: '+ data.description +'</div>';
-                        content +=    '<div>Detail Type: '+ data.category_description +'</div>';
-                        $('#demo-position-content').html(content);
-                        instance.content($('#demo-position-content').html());
-                })
+				if($('#content-' +  id)[0]){
+					let content = $('#content-' + id).html();
+					$('#demo-position-content').html(content);
+				} else {
+                    $.ajax({
+                        url		: 'tooltip.php',
+                        data	: {
+                            type: 'load-one',
+                            id : id
+                        },
+                        type	: 'GET',
+                        dataType: 'json',
+                        async: false
+                    }).done(function(data){
+                        let content =    '<div>Name:   '+ data.title +'</div>';
+                            content +=    '<div>Type:   '+ data.category_name +'</div>';
+                            content +=    '<div>Actor:  '+ data.actor_name +'</div>';
+                            content +=    '<div>Release Date: '+ data.description +'</div>';
+                            content +=    '<div>Detail Type: '+ data.category_description +'</div>';
+                            $('#demo-position-content').html(content);
+                            $('#save-position-content').append('<div id=content-' + data.id + '>' + content + '</div>');
+                            instance.content($('#demo-position-content').html());
+                    })
+                }
             }
         });
     })
