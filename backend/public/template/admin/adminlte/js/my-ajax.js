@@ -35,8 +35,8 @@ function changeStatus(url) {
     );
 }
 
-function notice(currrent,data){
-    currrent.notify(data.title, {
+function notice(current,data){
+    current.notify(data.title, {
         className: data.class,
         position: 'top center',
     });
