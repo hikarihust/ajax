@@ -43,10 +43,51 @@ function notice(currrent,data){
 }
 
 function trashSingle(url){
-    $.get(url,
-        function (data) {
-            console.log(data);
-        },
-        "json"
-    );
+    Swal.fire(
+            confirmObj('Bạn chắc chắn muốn xóa dòng dữ liệu này?', 'error', 'Xóa')
+        ).then((result) => {
+        if (result.isConfirmed) {
+            $.get(url,
+                function (data) {
+                    let current = 'tr-' + data.id;
+                    showToast(data.class, data.title);
+                    $( '#' + current ).hide( 2000);
+                },
+                "json"
+            );
+        }
+    })
+}
+
+function confirmObj(text, icon, confirmText) {
+    return {
+        position: 'top',
+        title: 'Thông báo!',
+        text: text,
+        icon: icon,
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: confirmText,
+        cancelButtonText: 'Hủy',
+    };
+}
+
+const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+})
+
+function showToast(type, message) {
+    Toast.fire({
+        icon: type,
+        title: ' ' + message,
+    });
 }

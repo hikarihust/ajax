@@ -75,4 +75,13 @@ Practice - Change Name
 Practice - Change Category
 Practice - Change Status
 Practice - Delete Film
+Practice - Notice
+    sweetalert2
+    https://sweetalert2.github.io/
+    ajax\backend\public\template\admin\adminlte\js
+        npm install sweetalert2
+    -> adminlte\js\sweetalert2
+    template.ini
+        fileCss[]    = "sweetalert2/sweetalert2.min.css"
+        fileJs[]    = "sweetalert2/sweetalert2.min.js"
     
