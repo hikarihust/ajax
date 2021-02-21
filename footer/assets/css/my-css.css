@@ -1,0 +1,19 @@
+.footer-custom{
+    margin-top: 60vh;
+    background-image: url('../images/a.jpg');
+}
+
+.error-subscript{
+    margin-top: 8px;
+    display: none;
+    font-style: italic;
+    color: red;
+
+}
+
+.success-subscript{
+    margin-top: 8px;
+    display: none;
+    font-style: italic;
+    color: green;
+}
