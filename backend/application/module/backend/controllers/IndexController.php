@@ -30,4 +30,9 @@ class IndexController extends BackendController
 		echo json_encode($result);
 	}
 
+	public function trashAction(){
+		$params['id'] 		= $_GET['id'];
+		$result = $this->_model->delete($params);
+		echo json_encode($result);
+	}
 }

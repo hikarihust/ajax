@@ -60,4 +60,14 @@ class IndexModel extends BackendModel
         }
     }
 
+    public function delete($params, $options = null)
+    {
+        if($options == null){
+            $id         = $params['id'];
+            $query = "DELETE FROM `$this->table` WHERE id = $id";
+            $this->query($query);
+            return ['title' => 'Xóa phần tử thành công', 'class' => 'success','id' => $id];
+        }
+    }
+
 }

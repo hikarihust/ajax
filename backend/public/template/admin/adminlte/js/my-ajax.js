@@ -41,3 +41,12 @@ function notice(currrent,data){
         position: 'top center',
     });
 }
+
+function trashSingle(url){
+    $.get(url,
+        function (data) {
+            console.log(data);
+        },
+        "json"
+    );
+}

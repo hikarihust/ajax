@@ -74,3 +74,5 @@ Practice - Change Name
         fileJs[]	= "notifyjs/notify.min.js"
 Practice - Change Category
 Practice - Change Status
+Practice - Delete Film
+    
