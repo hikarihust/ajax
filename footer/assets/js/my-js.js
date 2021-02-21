@@ -2,7 +2,21 @@ $(document).ready(function() {
     $('#subscribe-form').click(function(e) {
         let value = $('.subscribe-form').val();
         if(isEmail(value)) {
-            displayMsg(false, true);
+            let dt = new Date();
+            let time = dt.getDate() + "/" + (dt.getMonth() + 1) + "/" + dt.getFullYear();
+
+            $.ajax({
+                type: "GET",
+                url: "save_user.php",
+                data: {
+                    email: value,
+                    time: time
+                },
+                dataType: "json",
+                success: function(data) {
+                    displayMsg(false, true);
+                }
+            });
         } else {
             displayMsg(true, false);
         }
